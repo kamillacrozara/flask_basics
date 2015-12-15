@@ -1,6 +1,6 @@
 import datetime
 
-from flas.ext.bcrypt import generate_password_hash
+from flask.ext.bcrypt import generate_password_hash
 from flask.ext.login import UserMixin
 from peewee import *
 
@@ -16,7 +16,7 @@ class User(UserMixin, Model):
 
     class Meta:
         database = DATABASE
-        order_by = ('-joined_at')
+        order_by = ('-joined_at',)
 
     @classmethod
     def create_user(cls, username, email, password, admin=False):
